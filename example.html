@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta property="og:url" content="http://pkg.bunsenlabs.org/repoidx.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://pkg.bunsenlabs.org/img/opengraph-flame.png" />
+    <meta property="og:description" content="BunsenLabs Linux APT Repository" />
+    <meta name="google" content="notranslate">
+    <link rel="icon" href="img/favicon16.png" sizes="16x16">
+    <link rel="icon" href="img/favicon32.png" sizes="32x32">
+    <link rel="icon" href="img/favicon48.png" sizes="48x48">
+    <title>Repository Index</title>
+    <style type="text/css">
+        code {
+            white-space: pre;
+        }
+    </style>
+    <link rel="stylesheet" href="css/plain-repo.css">
+    <link rel="dns-prefetch" href="//www.bunsenlabs.org">
+    <link rel="dns-prefetch" href="//forums.bunsenlabs.org">
+</head>
+
+<body>
+    <div class="padlock"></div>
+    <div class="center marginbox">
+        <a href="https://bunsenlabs.org" title="About BunsenLabs Linux"><img class="logo" src="img/bunsenlabs-text-flame.svg" alt="[BunsenLabs logo]"></a>
+        <br>
+        <a class="header" href="https://bunsenlabs.org">About BunsenLabs Linux</a> |
+        <a class="header" href="index.html" title="APT repositories">Repositories</a> |
+        <span class="semibold"><a class="header" href="repoidx.html" title="Repository Index">Repository Index</a></span> |
+        <a class="header" href="https://forums.bunsenlabs.org" title="Community and support">Forums</a> |
+        <a class="header" href="https://www.bunsenlabs.org/donations.html" title="Support BunsenLabs">Donations</a>
+    </div>
+    <div id="agent-notchrome" class="info" style="display:none">
+        <p>
+            This page has been been verified to be functional only on Firefox &gt;=38 and Chrome/Chromium &gt;= 48 with experimental JS script features (‘harmony’) enabled. It may work for you or not.
+        </p>
+    </div>
+    <div id="agent-palemoon" class="info" style="display:none">
+        <p>
+            It looks like you are using the PaleMoon browser – please be informed that this page will not (yet) run on that browser’s JavaScript engine for its lack of ECMAScript 6 features.
+        </p>
+    </div>
+    <form action="/repoidx.html" method="get" style="text-align:center">
+        <select id="filter-key" title="Select the package property to filter by" name="k" style="width:20%;display:inline;">
+            <option value="any">Any field</option>
+            <option value="description-title">Title, Descr</option>
+            <option value="maintainer">Maintainer</option>
+            <option value="section">Section</option>
+            <option value="depends">Depends</option>
+            <option value="suggests">Suggests</option>
+            <option value="recommends">Recommneds</option>
+            <option value="version">Version</option>
+        </select>
+        <input id="filter-value" style="width:75%;display:inline;" type="text" autofocus="true" name="v" minlength="1">
+    </form>
+    <div id="bl-repo-index-toc">
+
+    </div>
+    <div id="bl-repo-index">
+
+    </div>
+    <div style="margin-bottom:20px">
+
+    </div>
+    <script type="text/javascript;version=1.7" src="js/bl-repo-index.js"></script>
+    <script type="text/javascript" src="js/bl-repo-index.js"></script>
+    <script type="text/javascript">
+        // From https://stackoverflow.com/questions/9847580. Why is the web so shitty?
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+        var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+        var isEdge = !isIE && !!window.StyleMedia;
+        var b, ua = window.navigator.userAgent;
+        if (isOpera || isSafari || isIE || isEdge) document.getElementById("agent-notchrome").style.display = "block";
+        if (ua.indexOf("PaleMoon") > -1) document.getElementById("agent-palemoon").style.display = "block";
+    </script>
+    <noscript>
+        <div class="warning">
+            <p>
+                The repository index is rendered by your browser using JavaScript, which is used for retrieving and processing the package lists from our repository. Without JavaScript, this page stays empty.
+            </p>
+
+            <p>
+                Allow scripts originating from the <span class="semibold">bunsenlabs.org</span> domain to run, or <a href="/debian">view the directory index instead</a>.
+            </p>
+
+            <p>
+                You may also <a href="js/bl-repo-index.js">inspect</a> the script before running it.
+            </p>
+        </div>
+    </noscript>
+    <script src="js/lock.js"></script>
+    <script>
+        var n = window.location.search.substring(1);
+        if (n == "mercury")
+            document.cookie = "css=mercury";
+        else if (n == "no-mercury")
+            document.cookie = "css=no-mercury";
+        if (document.cookie == "css=mercury") {
+            if (n = document.querySelector("img.logo")) {
+                n.setAttribute("src", "img/bunsenlabs-text-flame-mercury.svg");
+            }
+            n = document.createElement("link");
+            n.href = "css/plain-mercury.css";
+            n.type = "text/css";
+            n.rel = "stylesheet";
+            document.head.appendChild(n);
+        }
+    </script>
+</body>
+
+</html>

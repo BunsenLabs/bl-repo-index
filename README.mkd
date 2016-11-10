@@ -6,6 +6,15 @@ plain JavaScript with no additional dependencies as well as completely
 implemented on the client side, making it suitable for static sites, and can be
 used with any APT repostiory.
 
+The JavaScript needs some complementary HTML markup to provide the
+anchors it will attach its content to, and some styling of the resulting
+page (although it would work without any CSS, too).
+
+As a guideline, you should always look at the current BunsenLabs
+repository index page and sources linked above (there is no obfuscation
+or minification); however, we provide the CSS and HTML of that site in
+this repository as a convenience.
+
 ### Requirements
 
 * Firefox 38 or later
