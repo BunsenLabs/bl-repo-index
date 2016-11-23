@@ -1,5 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,300);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+/*
+ * plain.css - BunsenLabs.org stylesheet
+ * Copyright (C) 2015-2016 Jens John <asterisk@2ion.de>
+ *
+ * Parts of it are based on or copied from the 'Buttondown' pandoc
+ * stylesheet by Ryan Gray. Link to the original file:
+ * https://gist.github.com/ryangray/1882525
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400');
 
 .center {
   text-align: center;
@@ -14,189 +24,179 @@ monospace {
   font-size: 107%;
 }
 
-.monospaced {
-  font-family: "Ubuntu Mono", monospace;
-  font-size: 107%;
+html {
+  height:100%;
 }
 
 body {
-    margin: auto;
+    width:100%;
+    height:100%;
+    margin:auto;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    color: #111;
+    color: #272822;
+    text-rendering: optimizeLegibility;
 }
 
-body > p {
+.content-wrapper {
+  width:750px;
+  margin:auto;
+}
+
+nav > .content-wrapper, footer > .content-wrapper {
+  text-align:center;
+}
+
+nav {
+  padding: 2ex 0 3ex 0;
+  background-color: #272822;
+}
+
+nav img {
+  margin-bottom: 1ex;
+}
+
+footer {
+  padding: 2ex 0 1ex 0;
+  border-bottom: 1px solid #ddd;
+  border-top:1px solid #ddd;
+  background-color:#f6f6f6;
+  color:#272822;
+  font-size:2ex;
+}
+
+.footer-row {
+  margin-bottom:1ex;
+  font-family:"Roboto",sans-serif;
+}
+
+.footer-row a, .footer-row a:visited {
+  padding: 10px 12px 6px 12px;
+  margin-right:2ex;
+  color:#272822;
+  text-decoration:none;
+  font-family:"Open Sans", sans-serif;
+}
+
+.footer-sponsor {
+  float:left;
+  margin-left:2ex;
+}
+
+.footer-sponsor img {
+  height:6ex;
+}
+
+.footer-row a:hover {
+  text-decoration:none;
+  border-bottom:4px solid #272822;
+}
+
+.nav-row a, .nav-row a:visited {
+  margin-top: 4px;
+  padding: 6px 12px 6px 12px;
+  color: #fff;
+  font-size: 2ex;
+  text-decoration:none;
+}
+
+.nav-row a:hover {
+  text-decoration:none;
+  border-bottom: 4px solid #f6f6f6;
+}
+
+.nav-row a.selected {
+  border-bottom: 4px solid #f6b620;
+}
+
+.toc {
+  padding:2ex 0 2ex 0;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #ddd;
+}
+
+.toc ul {
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.toc a {
+  color:#272822;
+  text-decoration:none;
+  font-size:2ex;
+}
+
+main p {
   line-height: 1.50;
 }
 
-
-html {
-  border-top: 5px solid #3E3E3E;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  page-break-after: avoid;
 }
 
-@media all and (min-width: 800px) {
-  body {
-    width: 750px;
-  }
-  img.logo {
-    height: 120px;
-  }
+pre, code {
+  font-family: 'Ubuntu Mono', monospace;
+  white-space: pre;
 }
 
-@media all and (max-width: 799px) {
-  body {
-    width: 90%;
-  }
-  img.logo {
-    width: 85%;
-  }
+pre {
+  background-color: rgba(203,207,211, 0.1);
 }
 
-@media all and (max-width: 799px) and (orientation: landscape) {
-  body {
-    width: 75%;
-  }
-  img.logo {
-    width: 65%;
-  }
+code {
+  color: #9b0c0c;
+  font-size: 110%;
 }
 
-
-/* Hide extra information on small(ish) screens */
-@media all and (max-width: 500px) {
-  span.pkg-version, span.pkg-count, span.distro-modification-date {
-    display: none!important;
-  }
+pre {
+  padding: 0.5em;
+  border-radius: 0px;
+  border: 1px solid #aaa;
+  line-height: 1.25;
 }
 
-h1, h2, h3, h4, h5, h6
-{
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    page-break-after: avoid; /* Firefox, Chrome, and Safari do not support the property value "avoid" */
-}
-
-#bl-repo-index h3 {
-  margin-bottom:-0.5em;
-}
-
-#bl-repo-index a {
-  color: #111;
-}
-
-pre, code 
-    {
-    font-family: 'Ubuntu Mono', monospace;
+@media screen {
+  pre {
     white-space: pre;
-    }
-
-code
-    {
-    color: #9b0c0c;
-    font-size: 110%;
-    }
-
-pre /* Code blocks */
-    {
-    background-color: rgba(203,207,211, 0.1);
-    /* Distinguish pre blocks from other text by more than the font with a background tint. */
-    padding: 0.5em; /* Since we have a background color */
-    border-radius: 0px; /* Softens it */
-    /* Give it a some definition */
-    border: 1px solid #aaa;
-    /* Set it off left and right, seems to look a bit nicer when we have a background */
-    line-height: 1.3;
-    }
-
-@media screen
-    {
-    pre
-        {
-        /* On screen, use an auto scroll box for long lines, unless word-wrap is enabled */
-        white-space: pre;
-        overflow: auto;
-        /* Dotted looks better on screen and solid seems to print better. */
-        border: 1px dotted #777;
-        }
-    }
-
-code /* All inline code spans */
-    {
-    }
+    overflow: auto;
+    border: 1px dotted #777;
+  }
+}
 
 hr {
-  height: 2px;
-  background-color: #3e3e3e;
+  height: 1px;
+  border-width: 0;
+  background-color: #272822;
+  color: #272822;
   text-align:center; margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 20px;
   width: 20%;
 }
 
-a /* All links */
-    {
-    /* Keep links clean. On screen, they are colored; in print, they do nothing anyway. */
-    text-decoration: none;
-    color: #9b0c0c;
-    }
-a:visited
-    {
-    color: #9b0c0c;
-    }
-@media screen
-    {
-    a:hover
-        {
-        /* On hover, we indicate a bit more that it is a link. */
-        text-decoration: underline;
-        }
-    }
+main  a {
+  text-decoration: none;
+  color: #9b0c0c;
+}
+
+main a:visited {
+  color: #9b0c0c;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 a.header, #TOC ul a {
-  color: #111;
+  color: black;
 }
 
-#bl-repo-index #TOC ul li:hover {
-  background-color: #efefef;
+a.footnote, a.footnoteRef {
+  font-size: small;
+  vertical-align: text-top;
 }
-
-#bl-repo-index #TOC ul li {
-  padding: 0 4px 0 4px;
-}
-
-a.footnote, a.footnoteRef { /* Pandoc, MultiMarkdown footnote links */
-    font-size: small; 
-    vertical-align: text-top;
-}
-
-a[href^="#fnref"], a.reversefootnote /* Pandoc, MultiMarkdown, ?? footnote back links */
-    {
-    }
-
-@media print
-    {
-    a[href^="#fnref"], a.reversefootnote /* Pandoc, MultiMarkdown */
-        {
-        /* Don't display these at all in print since the arrow is only something to click on */
-        display: none;
-        }
-    }
-    
-div.footnotes /* Pandoc footnotes div at end of the document */
-    {
-    }
-    
-div.footnotes li[id^="fn"] /* A footnote item within that div */
-    {
-    }
-
-div#TOC, nav#TOC
-    {
-    /* Put border on bottom to separate it from body. */
-    border-bottom: 1px solid #aaa;
-    margin-bottom: 0.5em;
-  }
 
 span.semibold {
   font-weight: 600;
@@ -205,99 +205,92 @@ span.semibold {
 #feed {
   max-width:700px;
   margin:auto;
+  margin-bottom:2ex;
+  margin-top:2ex;
 }
 
 .gha-header, .gha-push {
   display:none;
 }
 
-/* ---- Tables ---- */
-
-/*  A clean textbook-like style with horizontal lines above and below and under 
-    the header. Rows highlight on hover to help scanning the table on screen.
-*/
-
-table
-    {
-    border-collapse: collapse;
-    border-spacing: 0; /* IE 6 */
-
-    margin-left: auto;
-    margin-right: auto;
-
-    width:100%;
-    }
-
-#bl-repo-index table {
-  border-bottom: 1pt solid #000;
-  border-top: 1pt solid #000;
+.gha-feed a, .gha-feed a:visited {
+  color: #9b0c0c ! important;
 }
 
-#bl-repo-index thead {
-  border-bottom: 1pt solid #000;
+.gha-feed {
+  background-color: rgba(203, 207, 211, 0.1) ! important;
+}
+
+.gha-footer {
+  border-bottom:1px solid #ddd;
+}
+
+table {
+  border-collapse: collapse;
+  border-bottom: 2pt solid #272822;
+  border-top: 2pt solid #272822;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
+}
+
+thead {
+  border-bottom: 1pt solid #272822;
   background-color: #f5f5f5;
 }
 
-#bl-repo-index tbody tr:hover
-{
+tr.odd:hover, tr.even:hover {
   background-color: #eee;
 }
-    
-td, th /* Table cells and table header cells */
-    { 
-    vertical-align: middle;
-    padding-left:   0.5em;
-    padding-right:  0.5em;
-    padding-top:    0.2em;
-    padding-bottom: 0.2em;
-    }
 
-/* Removes padding on left and right of table for a tight look. Good if thead has no background color*/
-/*
-tr td:last-child, tr th:last-child
-    {
-    padding-right: 0;
-    }
-tr td:first-child, tr th:first-child 
-    {
-    padding-left: 0;
-    }
-*/
+td, th {
+  vertical-align: middle;
+  padding-left:   0.5ex;
+  padding-right:  0.5ex;
+  padding-top:    0.5ex;
+  padding-bottom: 0.5ex;
+}
 
-th /* Table header cells */
-    {
-    font-weight: bold; 
-    }
+table.plain {
+  border: none;
+}
 
-tfoot /* Table footer (what appears here if caption is on top?) */
-    {
-    }
+table.plain td, table.plain th {
+  vertical-align: middle;
+}
 
-caption /* This is for a table caption tag, not the p.caption Pandoc uses in a div.figure */
-    {
-    caption-side: top;
-    border: none;
-    font-size: 0.9em;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 0.3em; /* Good for when on top */
-    padding-bottom: 0.2em;
-    }
+th {
+  font-weight: bold;
+}
+
+caption {
+  caption-side: top;
+  border: none;
+  font-size: 0.9em;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.2em;
+}
 
 ul > li, ol > li {
   margin-top: 0px;
   line-height: 1.5;
 }
 
-#bl-repo-index > table > thead > tr > th {
+dl > dt
+{
   font-weight: 600;
+  margin-bottom: 0.25em;
+  margin-top: 0.5em;
 }
 
-.warning {
-  margin-top: 20px;
-  background-color: #fcffba;
-  padding: 10px 30px 10px 30px;
-  border: 1px solid #aa0000;
+.sliderbox
+{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .info {
@@ -306,13 +299,16 @@ ul > li, ol > li {
   border: 1px solid #00aa00;
 }
 
-span.pkg-version, span.pkg-count, span.distro-modification-date {
-  font-weight: 300;
-  float:right;
+.warning {
+  background-color: #fcffba;
+  padding: 10px 30px 10px 30px;
+  border: 1px solid #aa0000;
 }
 
+/* Repository index */
 span.pkg-section {
-  font-family: "Ubuntu Mono";
+  font-family: "Ubuntu Mono", monospace;
+  color:#aaa;
   font-size: 110%;
 }
 span.pkg-section::before {
@@ -322,21 +318,91 @@ span.pkg-section::after {
   content: "]";
 }
 
-.padlock {
-  position: relative;
+span.pkg-version, span.pkg-count, span.distro-modification-date {
+  float:right;
 }
 
-.padlock img {
-  height:32px;
-  position: absolute;
-  top:0px;
-  right:0px;
+#bl-repo-index h3 {
+  margin-bottom:-0.5em;
 }
 
-hr.footer {
-  width: 100%;
-  color: #aaa;
-  background-color: #aaa;
+#bl-repo-index a {
+  color: #272822;
 }
 
+#bl-repo-index table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
 
+#bl-repo-index table {
+  border-bottom: 1pt solid #272822;
+  border-top: 1pt solid #272822;
+}
+
+#bl-repo-index thead {
+  border-bottom: 1pt solid #272822;
+  background-color: #f5f5f5;
+}
+
+#bl-repo-index tbody tr:hover {
+  background-color: #efefef;
+}
+    
+#bl-repo-index td, #bl-repo-index th { 
+  vertical-align: middle;
+  padding-left:   0.5em;
+  padding-right:  0.5em;
+  padding-top:    0.2em;
+  padding-bottom: 0.2em;
+}
+
+#bl-repo-index .toc {
+  padding-top:0;
+  margin-top:-1ex;
+  background-color: inherit;
+}
+
+#bl-repo-index .toc ul li:hover {
+  background-color: #efefef;
+}
+
+#bl-repo-index .toc ul li {
+  padding: 0 4px 0 4px;
+}
+
+/* Responsive @media */
+@media all and (min-width: 800px) {
+  nav img {
+    height: 120px;
+  }
+}
+
+@media all and (max-width: 799px) {
+  nav img {
+    width: 85%;
+  }
+  .content-wrapper {
+    width:90%;
+  }
+  nav .content-wrapper a, footer .footer-row a {
+    display:block;
+  }
+  .footer-sponsor {
+    display:none;
+  }
+  span.pkg-version, span.pkg-count, span.distro-modification-date {
+    display: none;
+  }
+}
+
+@media all and (max-width: 799px) and (orientation: landscape) {
+  nav img {
+    width: 65%;
+  }
+  .content-wrapper {
+    width:75%;
+  }
+}

@@ -18,19 +18,19 @@
 
 'use strict';
 
-const BASE_POOL_URL="/debian/";
+const BASE_POOL_URL="https://eu.pkg.bunsenlabs.org/debian/";
 const BLDIST = {
   bunsen_hydrogen: [
-    "/debian/dists/bunsen-hydrogen/main/binary-amd64/Packages",
-    "/debian/dists/bunsen-hydrogen/main/binary-i386/Packages",
-    "/debian/dists/bunsen-hydrogen/main/binary-armhf/Packages"],
+    "https://eu.pkg.bunsenlabs.org/debian/dists/bunsen-hydrogen/main/binary-amd64/Packages",
+    "https://eu.pkg.bunsenlabs.org/debian/dists/bunsen-hydrogen/main/binary-i386/Packages",
+    "https://eu.pkg.bunsenlabs.org/debian/dists/bunsen-hydrogen/main/binary-armhf/Packages"],
   jessie_backports: [
-    "/debian/dists/jessie-backports/main/binary-amd64/Packages",
-    "/debian/dists/jessie-backports/main/binary-i386/Packages",
-    "/debian/dists/jessie-backports/main/binary-armhf/Packages"],
+    "https://eu.pkg.bunsenlabs.org/debian/dists/jessie-backports/main/binary-amd64/Packages",
+    "https://eu.pkg.bunsenlabs.org/debian/dists/jessie-backports/main/binary-i386/Packages",
+    "https://eu.pkg.bunsenlabs.org/debian/dists/jessie-backports/main/binary-armhf/Packages"],
   unstable: [
-    "/debian/dists/unstable/main/binary-amd64/Packages",
-    "/debian/dists/unstable/main/binary-i386/Packages"]
+    "https://eu.pkg.bunsenlabs.org/debian/dists/unstable/main/binary-amd64/Packages",
+    "https://eu.pkg.bunsenlabs.org/debian/dists/unstable/main/binary-i386/Packages"]
 };
 
 var DIST_TOC_ENTRIES = {};            /* Global ToC DOM nodes */
@@ -317,8 +317,8 @@ function render_distro(p, distro, m) {
   }
 
   /* Table of Contents */
-  let nav = document.createElement("nav");
-  nav.setAttribute("id", "TOC");
+  let nav = document.createElement("div");
+  nav.setAttribute("class", "toc");
   let navul = document.createElement("ul");
   pkeys.forEach(function (k) {
     let li = document.createElement("li");
@@ -376,11 +376,12 @@ function render_distro(p, distro, m) {
             pkgmodnode.setAttribute("class", "pkg-mod-date");
             pkgmodnode.setAttribute("title", "Last package update");
             li.appendChild(pkgmodnode);
+
             let span = document.createElement("span");
             span.setAttribute("class", "pkg-section");
             span.setAttribute("title", "Package section");
             span.textContent = pkg.section;
-            li.appendChild(span);
+            h3.appendChild(span);
           }
           ul.appendChild(li);
         });
@@ -446,10 +447,8 @@ function render_distro(p, distro, m) {
 
 /* Adds the list of distros to the DOM */
 function render_main_toc() {
-  let p = document.querySelector("#bl-repo-index-toc");
-  if(p===null) return;
-  let nav = document.createElement("nav");
-  nav.setAttribute("id", "TOC");
+  let anchor = document.querySelector(".toc ul li");
+  if(anchor === null) return;
   let ul = document.createElement("ul");
   for(let distro in BLDIST) {
     let li = document.createElement("li");
@@ -461,8 +460,7 @@ function render_main_toc() {
     ul.appendChild(li);
     DIST_TOC_ENTRIES[distro] = li;
   }
-  nav.appendChild(ul);
-  p.appendChild(nav);
+  anchor.appendChild(ul);
 }
 
 function render_package_mod_dates() {
